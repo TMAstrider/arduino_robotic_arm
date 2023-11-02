@@ -254,19 +254,27 @@ void gripperServoBackward() {
 
 }
 
-// void gripperServoBackward() {
-//   int targetPosition = servo_joint_4_parking_pos_i + servo_joint_4_pos_increment;
-  
-//   while (servo_joint_4_parking_pos_i < targetPosition) {
-//     float progress = static_cast<float>(servo_joint_4_parking_pos_i) / targetPosition;
-//     int newPosition = servo_joint_4_parking_pos_i + static_cast<int>(servo_joint_4_pos_increment * progress);
+// 这个其实就相当于一个灵敏度调节一样 感觉 每一次都只会移动一个**increment**那么多的位置
+void gripperServoBackward_Solution1() {
+  int targetPosition = servo_joint_4_parking_pos_i + servo_joint_4_pos_increment;
+
+  while (servo_joint_4_parking_pos_i < targetPosition) {
+    float progress = static_cast<float>(servo_joint_4_parking_pos_i) / targetPosition;
+    int newPosition = servo_joint_4_parking_pos_i + static_cast<int>(servo_joint_4_pos_increment * progress);
     
-//     HCPCA9685.Servo(5, newPosition);
-//     delay(response_time / 10); // Adjust the delay time for desired speed
-//     Serial.println(newPosition);
-//     servo_joint_4_parking_pos_i = newPosition;
-//   }
-// }
+    HCPCA9685.Servo(5, newPosition);
+    delay(response_time / 10); // Adjust the delay time for desired speed
+    Serial.println(newPosition);
+    servo_joint_4_parking_pos_i = newPosition;
+
+    // Check if the target position is reached
+    if (servo_joint_4_parking_pos_i >= targetPosition) {
+      break; // Exit the loop when the target position is reached
+    }
+  }
+}
+
+
 
 void wristServoCW() {
 

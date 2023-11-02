@@ -214,19 +214,22 @@ void GetMpuValue1(const int MPU) {
   y = RAD_TO_DEG * (atan2(-xAng, -zAng) + PI);
   z = RAD_TO_DEG * (atan2(-yAng, -xAng) + PI);
 
-  //-- Comment to Debug
+  -- Comment to Debug
   //  Serial.print("AngleX= ");
   //  Serial.print(x);
   //  Serial.print("\t");
-  //
+  
   //  Serial.print("AngleY= ");
   //  Serial.print(y);
   //  Serial.print("\t");
-  //
+  
   //  Serial.print("AngleZ= ");
   //  Serial.print(z);
   //  Serial.print("\t");
   //  Serial.println("-----------------------------------------");
+
+
+
 
 
   //  Serial.print("AcX = ");
