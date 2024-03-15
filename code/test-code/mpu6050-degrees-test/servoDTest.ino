@@ -9,10 +9,14 @@
 
 #include<Wire.h>
 
+#include <Servo.h>
+
 #define button 8
-#define mpuAd1 3
-#define mpuAd2 4
-#define mpuAd3 5
+
+Servo myservo_1;  // create servo object to control a servo
+int pos = 0;    // variable to store the servo position
+
+
 
 int state = 0;
 int buttonState = 0;
@@ -32,10 +36,23 @@ double z;
 
 int response_time = 40;
 
+int response_time_4 = 2;
+
+const int servo_joint_3_parking_pos = 63;
+
+
+int servo_joint_3_parking_pos_i = servo_joint_3_parking_pos;
+
+
+int servo_joint_3_pos_increment = 4;
+
+int servo_joint_3_max_pos = 170;
+int servo_joint_3_min_pos =10;
+
+
+
 void setup() {
   pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
   Wire.begin();
   Wire.beginTransmission(MPU1);
   Wire.write(0x6B);// PWR_MGMT_1 register
@@ -47,11 +64,37 @@ void setup() {
   Wire.endTransmission(true);
   Serial.begin(4800);
   delay(1000);
+  myservo_1.attach(9);  // attaches the servo on pin 9 to the servo object
+  myservo_1.write(90);
+  delay(5000);
 
 }
+
+
 void loop() {
   //get values for first mpu having address of 0x68
   GetMpuValue1(MPU1);
+  if ( x > 15 && x < 55) {
+    if(servo_joint_3_parking_pos_i < servo_joint_3_max_pos) {
+      myservo_1.write(servo_joint_3_parking_pos_i);
+      delay(response_time_4);
+      Serial.println(servo_joint_3_parking_pos_i);
+      servo_joint_3_parking_pos_i = servo_joint_3_parking_pos_i + servo_joint_3_pos_increment;
+    }
+    
+  }
+  if ( x < 350 && x > 270) {
+    if (servo_joint_3_parking_pos_i > servo_joint_3_min_pos) {
+      myservo_1.write(servo_joint_3_parking_pos_i);
+      delay(response_time_4);
+      Serial.println(servo_joint_3_parking_pos_i);
+      servo_joint_3_parking_pos_i = servo_joint_3_parking_pos_i - servo_joint_3_pos_increment;
+
+    }
+  }
+    
+
+
 }
 
 void GetMpuValue1(const int MPU) {

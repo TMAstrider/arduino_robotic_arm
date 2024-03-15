@@ -9,11 +9,8 @@
 
 #include<Wire.h>
 
+#define TCAADDR 0x70
 #define button 8
-#define mpuAd1 3
-#define mpuAd2 4
-#define mpuAd3 5
-
 int state = 0;
 int buttonState = 0;
 int check = 1;
@@ -32,10 +29,16 @@ double z;
 
 int response_time = 40;
 
+// Select I2C BUS
+void TCA9548A(uint8_t bus){
+  Wire.beginTransmission(0x70);  // TCA9548A address
+  Wire.write(1 << bus);          // send byte to select bus
+  Wire.endTransmission();
+  Serial.print(bus);
+}
+
 void setup() {
   pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
   Wire.begin();
   Wire.beginTransmission(MPU1);
   Wire.write(0x6B);// PWR_MGMT_1 register
@@ -45,12 +48,13 @@ void setup() {
   Wire.write(0x6B);// PWR_MGMT_1 register
   Wire.write(0); // set to zero (wakes up the MPU-6050)
   Wire.endTransmission(true);
-  Serial.begin(4800);
+  Serial.begin(9600);
   delay(1000);
 
 }
 void loop() {
   //get values for first mpu having address of 0x68
+  TCA9548A(0);
   GetMpuValue1(MPU1);
 }
 

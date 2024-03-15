@@ -214,36 +214,39 @@ void GetMpuValue1(const int MPU) {
   y = RAD_TO_DEG * (atan2(-xAng, -zAng) + PI);
   z = RAD_TO_DEG * (atan2(-yAng, -xAng) + PI);
 
-  -- Comment to Debug
-  //  Serial.print("AngleX= ");
-  //  Serial.print(x);
-  //  Serial.print("\t");
+  // -- Comment to Debug
+  Serial.println("MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 ");
+   Serial.print("AngleX= ");
+   Serial.print(x);
+   Serial.print("\t");
   
-  //  Serial.print("AngleY= ");
-  //  Serial.print(y);
-  //  Serial.print("\t");
+   Serial.print("AngleY= ");
+   Serial.print(y);
+   Serial.print("\t");
   
-  //  Serial.print("AngleZ= ");
-  //  Serial.print(z);
-  //  Serial.print("\t");
-  //  Serial.println("-----------------------------------------");
+   Serial.print("AngleZ= ");
+   Serial.print(z);
+   Serial.print("\t");
+   Serial.println("-----------------------------------------");
+  Serial.println("MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 MPU 1 ");
 
 
 
 
 
-  //  Serial.print("AcX = ");
-  //  Serial.print(AcX1);
-  //  Serial.print(" | AcY = ");
-  //  Serial.print(AcY1);
-  //  Serial.print(" | AcZ = ");
-  //  Serial.print(AcZ1);
-  //  Serial.print(" | GyX = ");
-  //  Serial.print(GyX1);
-  //  Serial.print(" | GyY = ");
-  //  Serial.print(GyY1);
-  //  Serial.print(" | GyZ = ");
-  //  Serial.println(GyZ1);
+
+   Serial.print("AcX = ");
+   Serial.print(AcX1);
+   Serial.print(" | AcY = ");
+   Serial.print(AcY1);
+   Serial.print(" | AcZ = ");
+   Serial.print(AcZ1);
+   Serial.print(" | GyX = ");
+   Serial.print(GyX1);
+   Serial.print(" | GyY = ");
+   Serial.print(GyY1);
+   Serial.print(" | GyZ = ");
+   Serial.println(GyZ1);
 }
 
 void GetMpuValue2(const int MPU) {
@@ -271,72 +274,75 @@ void GetMpuValue2(const int MPU) {
   z2 = RAD_TO_DEG * (atan2(-yAng2, -xAng2) + PI);
 
   //-- Comment to Debug
-  //    Serial.print("AcX = ");
-  //    Serial.print(AcX2);
-  //    Serial.print(" | AcY = ");
-  //    Serial.print(AcY2);
-  //    Serial.print(" | AcZ = ");
-  //    Serial.print(AcZ2);
-  //    Serial.print(" | GyX = ");
-  //    Serial.print(GyX2);
-  //    Serial.print(" | GyY = ");
-  //    Serial.print(GyY2);
-  //    Serial.print(" | GyZ = ");
-  //    Serial.println(GyZ2);
-  //
-  //    Serial.print("AngleX2= ");
-  //    Serial.print(x2);
-  //    Serial.print("\t");
-  //
-  //    Serial.print("AngleY2= ");
-  //    Serial.print(y2);
-  //    Serial.print("\t");
-  //
-  //    Serial.print("AngleZ2= ");
-  //    Serial.print(z2);
-  //    Serial.print("\t");
-  //  Serial.println("-----------------------------------------");
+  Serial.println("MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 ");
+     Serial.print("AcX = ");
+     Serial.print(AcX2);
+     Serial.print(" | AcY = ");
+     Serial.print(AcY2);
+     Serial.print(" | AcZ = ");
+     Serial.print(AcZ2);
+     Serial.print(" | GyX = ");
+     Serial.print(GyX2);
+     Serial.print(" | GyY = ");
+     Serial.print(GyY2);
+     Serial.print(" | GyZ = ");
+     Serial.println(GyZ2);
+  
+     Serial.print("AngleX2= ");
+     Serial.print(x2);
+     Serial.print("\t");
+  
+     Serial.print("AngleY2= ");
+     Serial.print(y2);
+     Serial.print("\t");
+  
+     Serial.print("AngleZ2= ");
+     Serial.print(z2);
+     Serial.print("\t");
+   Serial.println("-----------------------------------------");
+     Serial.println("MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 MPU2 ");
+
 
 }
 
-void debug_flex() {
-  //Sends value as a serial monitor to port
-  //thumb (Claw open / close)
-  Serial.print("Thumb: ");
-  Serial.print(thumb);
-  Serial.print("\t");
-  //  //thumb Params
-  Serial.print("thumb High: ");
-  Serial.print(thumb_high);
-  Serial.print("\t");
-  Serial.print("T Low: ");
-  Serial.print(thumb_low);
-  Serial.print("\t");
+// void debug_flex() {
+//   //Sends value as a serial monitor to port
+//   //thumb (Claw open / close)
+//   Serial.print("Thumb: ");
+//   Serial.print(thumb);
+//   Serial.print("\t");
+//   //  //thumb Params
+//   Serial.print("thumb High: ");
+//   Serial.print(thumb_high);
+//   Serial.print("\t");
+//   Serial.print("T Low: ");
+//   Serial.print(thumb_low);
+//   Serial.print("\t");
 
-  //finger (Claw Further)
-  Serial.print("finger: ");
-  Serial.print(finger);
-  Serial.print("\t");
+//   //finger (Claw Further)
+//   Serial.print("finger: ");
+//   Serial.print(finger);
+//   Serial.print("\t");
 
-  //  finger Params
-  Serial.print("finger High: ");
-  Serial.print(finger_high);
-  Serial.print("\t");
-  Serial.print("finger Low: ");
-  Serial.print(finger_low);
-  Serial.print("\t");
+//   //  finger Params
+//   Serial.print("finger High: ");
+//   Serial.print(finger_high);
+//   Serial.print("\t");
+//   Serial.print("finger Low: ");
+//   Serial.print(finger_low);
+//   Serial.print("\t");
 
-  //Pinkie (Claw Further)
-  Serial.print("Pinkie: ");
-  Serial.print(pinkie);
-  Serial.print("\t");
+//   //Pinkie (Claw Further)
+//   Serial.print("Pinkie: ");
+//   Serial.print(pinkie);
+//   Serial.print("\t");
 
-  //  //Pinkie Params
-  Serial.print("Pinkie High: ");
-  Serial.print(pinkie_high);
-  Serial.print("\t");
-  Serial.print("Pinkie Low: ");
-  Serial.print(pinkie_low);
-  Serial.print("\t");
-  Serial.println();
-}
+//   //  //Pinkie Params
+//   Serial.print("Pinkie High: ");
+//   Serial.print(pinkie_high);
+//   Serial.print("\t");
+//   Serial.print("Pinkie Low: ");
+//   Serial.print(pinkie_low);
+//   Serial.print("\t");
+//   Serial.println();
+// }
