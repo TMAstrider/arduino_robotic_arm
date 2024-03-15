@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Arduino Robotic Arm - Controlled by Hand Gestures
 
 This video is a tutorial on how to build a DIY Robotic Arm controlled by hand gestures. The Robotic arm is able to be controlled wirelessly from a distance as well as perform basic functions on its own.
@@ -14,3 +15,7 @@ Robot Arm: Thingiverse 3D Printed Robotic Arm - [credits: Wonder Tiger](https://
 Robotic Glove: Thingyverse Robotic Glove/ Gauntlet - [(credits: Roman 13)](https://www.thingiverse.com/thing:1982745)
 
 - Robotic Glove
+=======
+# arduino_robotic_arm
+this is a robotic arm that mimic your movement
+>>>>>>> 883c6c3627ce3cde4023a75d4f52b0494cc91d5c
